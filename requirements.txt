@@ -1,0 +1,9 @@
+google-cloud-pubsub
+firebase-admin
+pdfminer.six
+transformers
+torch
+nltk
+keybert
+textblob
+dotenv

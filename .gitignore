@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Firebase service account key
+serviceAccountKey.json
+
+# VS Code settings (optional)
+.vscode/
+
+# Logs
+*.log
+
+# Pip metadata
+*.egg-info/
+dist/
+build/
