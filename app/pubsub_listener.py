@@ -19,7 +19,15 @@ def listen_for_messages():
             message.ack()
         except Exception as e:
             print("❌ Error handling message:", e)
-            message.nack()
+            message.nack()  #Failure: Don't acknowledge → triggers retry or dead-letter
 
     subscriber.subscribe(subscription_path, callback=callback)
     print(f"✅ Listening for messages on: {subscription_path}...")
+
+    import time
+    print("⏳ Waiting for messages. Press Ctrl+C to exit.")
+    try:
+        while True:
+            time.sleep(60)
+    except KeyboardInterrupt:
+        print("👋 Shutting down...")
