@@ -51,22 +51,21 @@ The service retrieves documents from Google Cloud Storage (GCS) via signed URLs,
 git clone https://github.com/yourusername/ai-processing-service.git
 cd ai-processing-service
 
-🖥️ Running Locally
-1️⃣ Create a Virtual Environment
+### Running Locally
+**Create a Virtual Environment**
 python3 -m venv venv
-# Activate the environment
 source venv/bin/activate      
 venv\Scripts\activate         
-2️⃣ Install Dependencies
+**Install Dependencies**
 pip install -r requirements.txt
-3️⃣ Set Up Environment Variables
+**Set Up Environment Variables**
 Create a .env file in the project root:
 GOOGLE_CLOUD_PROJECT=your-gcp-project-id
 SUBSCRIPTION_NAME=your-pubsub-subscription-name
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
 Note: The path for GOOGLE_APPLICATION_CREDENTIALS should be absolute.
 
-4️⃣ Run the Service
+**Run the Service**
 python main.py
 When running, the service will:
 
@@ -78,17 +77,17 @@ Process documents
 
 Update Firestore
 
-🐳 Running with Docker
-1️⃣ Build the Docker Image
+### Running with Docker
+**Build the Docker Image**
 docker build -t ai-processing-service .
-2️⃣ Run the Container
+**Run the Container**
 docker run --env-file .env ai-processing-service
 Tip: Make sure your .env file contains valid credentials and file paths.
 
-🚀 Deployment on Google Kubernetes Engine (GKE)
-1️⃣ Build and Push the Image to Google Container Registry (GCR)
+### Deployment on Google Kubernetes Engine (GKE)
+**Build and Push the Image to Google Container Registry (GCR)**
 docker build -t gcr.io/your-gcp-project-id/ai-processing-service:latest .
 docker push gcr.io/your-gcp-project-id/ai-processing-service:latest
-2️⃣ Deploy to GKE
+**Deploy to GKE**
 kubectl apply -f k8s/deployment.yaml
 
